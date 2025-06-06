@@ -11,6 +11,7 @@ public class MatchingManager : NetworkBehaviour
     [Networked] public TickTimer LoadingTimer { get; set; }
     [Networked] public TickTimer CharacterSelectTimer { get; set; }
     [Networked] public bool IsCharacterSelectActive { get; set; }
+    [Networked] public bool IsGameActive { get; set; }
     [Networked, Capacity(2)]
     public NetworkDictionary<PlayerRef, CharacterDataEnum> SelectedCharacters => default;
 
@@ -73,11 +74,12 @@ public class MatchingManager : NetworkBehaviour
             IsCharacterSelectActive = true;
             RPC_GoToCharacterSelect();
         }
-
+        
         // 캐릭터 선택 완료(모두 선택 or 시간 만료) → 인게임 이동
         if (IsCharacterSelectActive &&
-            (CharacterSelectTimer.Expired(Runner) || SelectedCharacters.Count == MaxPlayerCount))
+            (CharacterSelectTimer.Expired(Runner) && SelectedCharacters.Count == MaxPlayerCount) && !IsGameActive)
         {
+            IsGameActive = true;
             RPC_GoToGame();
         }
         
