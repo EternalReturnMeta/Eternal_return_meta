@@ -78,7 +78,7 @@ public class MatchingManager : NetworkBehaviour
         if (IsCharacterSelectActive &&
             (CharacterSelectTimer.Expired(Runner) || SelectedCharacters.Count == MaxPlayerCount))
         {
-            // RPC_GoToGame();
+            RPC_GoToGame();
         }
         
     }
