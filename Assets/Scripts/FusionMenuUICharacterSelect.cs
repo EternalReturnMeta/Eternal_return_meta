@@ -14,7 +14,7 @@ namespace Fusion.Menu
 {
     public partial class FusionMenuUICharacterSelect : FusionMenuUIScreen
     {
-        private float duration = 60f;
+        private float duration = 20f;
         private Coroutine _countCoroutine;
         [SerializeField] private  TMP_Text _countText;
         [SerializeField] private Image countGauge;

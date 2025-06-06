@@ -2,7 +2,7 @@ using System.Linq;
 using Fusion;
 using Fusion.Menu;
 using UnityEngine;
-
+using UnityEngine.SceneManagement;
 
 public class MatchingManager : NetworkBehaviour
 {
@@ -17,7 +17,7 @@ public class MatchingManager : NetworkBehaviour
 
     private int MaxPlayerCount { get; set; } = 2;
     public const float LoadingDuration = 5f;
-    public const float CharacterSelectDuration = 60f;
+    public const float CharacterSelectDuration = 20f;
     public MenuUIController Controller { get; set; }
     
     public override void Spawned()
@@ -94,5 +94,18 @@ public class MatchingManager : NetworkBehaviour
     public void RPC_GoToCharacterSelect()
     {
         Controller.Show<FusionMenuUICharacterSelect>();
+    }
+    
+    [Rpc(RpcSources.StateAuthority, RpcTargets.All)]
+    public void RPC_GoToGame()
+    {
+        if (Object.HasStateAuthority) // 서버에서만 씬 로드 실행
+        {
+            // GameScene을 Additive 모드로 로드
+            Runner.LoadScene(
+                SceneRef.FromIndex(1), 
+                LoadSceneMode.Additive
+            );
+        }
     }
 }
