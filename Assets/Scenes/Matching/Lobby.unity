@@ -308,6 +308,8 @@ MonoBehaviour:
   _matchingManagerPrefab: {fileID: 1925812166740376416, guid: 9286d9ffb2259194f9e2472b93e823c2, type: 3}
   _playerNetworkObjectPrefab: {fileID: 1617892965860983171, guid: d4537a78b892bd240a1e809773a6d7f5, type: 3}
   Controller: {fileID: 992762365}
+  _playerPrefab:
+    RawGuidValue: f4a5c6e3aab733245bb659bafb9fc6c4
 --- !u!114 &67987068
 MonoBehaviour:
   m_ObjectHideFlags: 0

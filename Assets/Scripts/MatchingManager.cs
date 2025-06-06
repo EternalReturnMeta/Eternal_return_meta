@@ -12,6 +12,7 @@ public class MatchingManager : NetworkBehaviour
     [Networked] public TickTimer CharacterSelectTimer { get; set; }
     [Networked] public bool IsCharacterSelectActive { get; set; }
     [Networked] public bool IsGameActive { get; set; }
+    [Networked] public bool IsCompleteSpawn { get; set; }
     [Networked, Capacity(2)]
     public NetworkDictionary<PlayerRef, CharacterDataEnum> SelectedCharacters => default;
 
@@ -81,6 +82,27 @@ public class MatchingManager : NetworkBehaviour
         {
             IsGameActive = true;
             RPC_GoToGame();
+        }
+        
+        if (Object.HasStateAuthority && !IsCompleteSpawn)
+        {
+            var system = FindAnyObjectByType<System_Test>();
+
+            if (system == null)
+            {
+                return;
+            }
+            
+            IsCompleteSpawn = true;
+            foreach (var playerInfo in SelectedCharacters)
+            {
+                var playerPrefab = system.SelectPrefab(playerInfo.Value);
+                NetworkObject networkPlayerObject =
+                    Runner.Spawn(playerPrefab, Vector3.zero, Quaternion.identity, playerInfo.Key);
+                Runner.SetPlayerObject(playerInfo.Key, networkPlayerObject);
+            }
+            
+            FindAnyObjectByType<MatchingManagerSpawner>().IsCompleteSpawn = true;
         }
         
     }

@@ -1,6 +1,7 @@
 using Fusion;
 using Fusion.Menu;
 using Fusion.Photon.Realtime;
+using Fusion.Addons.Physics;
 using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
@@ -58,6 +59,7 @@ namespace EternalReturn.Menu
             }
             // 러너 생성 및 설정
             _runner = CreateRunner();
+            _runner.gameObject.AddComponent<RunnerSimulatePhysics3D>();
             
             // 기본 SceneManager를 부착함
             var SceneManager = _runner.gameObject.AddComponent<NetworkSceneManagerDefault>();

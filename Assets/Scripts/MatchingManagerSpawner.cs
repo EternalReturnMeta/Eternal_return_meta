@@ -5,7 +5,7 @@ using Fusion;
 using Fusion.Menu;
 using Fusion.Sockets;
 using UnityEngine;
-
+using UnityEngine.InputSystem;
 
 public class MatchingManagerSpawner : MonoBehaviour , INetworkRunnerCallbacks
 {
@@ -13,9 +13,16 @@ public class MatchingManagerSpawner : MonoBehaviour , INetworkRunnerCallbacks
     [SerializeField] private NetworkObject _matchingManagerPrefab;
     [SerializeField] private NetworkObject _playerNetworkObjectPrefab;
     [SerializeField] public MenuUIController Controller;
+    
+    [Networked] public bool IsCompleteSpawn { get; set; }
+    
     public MatchingManager MatchingManagerInstance { get; private set; }
     private NetworkObject _spawnedManager;
     private NetworkRunner _runner;
+    
+    private HeroInput _heroInput;
+    
+    private bool resetInput;
 
     public void Initialize(NetworkRunner runner)
     {
@@ -72,7 +79,78 @@ public class MatchingManagerSpawner : MonoBehaviour , INetworkRunnerCallbacks
     {
 
     }
-    public void OnInput(NetworkRunner runner, NetworkInput input) { }
+
+    public void OnInput(NetworkRunner runner, NetworkInput input)
+    {
+#if UNITY_SERVER
+        return;
+#endif
+        if (IsCompleteSpawn && runner.TryGetPlayerObject(runner.LocalPlayer, out NetworkObject networkObject))
+        {
+            if (networkObject.GetComponentInChildren<HeroState>().GetCurrHealth() <= 0f)
+            {
+                return;
+            }
+        }
+        
+        if (resetInput)
+        {
+            resetInput = false;
+            _heroInput = default;
+        }
+
+        Keyboard keyboard = Keyboard.current;
+        
+        NetworkButtons buttons = default;
+        
+        Mouse mouse = Mouse.current;
+        if (mouse != null)
+        {
+            buttons.Set(InputButton.LeftClick, mouse.leftButton.isPressed);
+            buttons.Set(InputButton.RightClick, mouse.rightButton.isPressed);
+        }
+        
+        if (keyboard != null)
+        {
+            buttons.Set(InputButton.SkillQ, keyboard.qKey.isPressed);
+            buttons.Set(InputButton.SkillW, keyboard.wKey.isPressed);
+            buttons.Set(InputButton.SkillE, keyboard.eKey.isPressed);
+            buttons.Set(InputButton.SkillR, keyboard.rKey.isPressed);
+        }
+        
+        if (mouse.rightButton.isPressed)
+        {
+            var ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            if (Physics.Raycast(ray, out var hit, Mathf.Infinity, LayerMask.GetMask("Ground")))
+            {
+                _heroInput.HitPosition_RightClick = hit.point;
+            }
+        }
+
+        if (keyboard.qKey.isPressed || keyboard.wKey.isPressed || keyboard.eKey.isPressed || keyboard.rKey.isPressed)
+        {
+            var ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            if (Physics.Raycast(ray, out var hit, Mathf.Infinity, LayerMask.GetMask("Ground")))
+            {
+                _heroInput.HitPosition_Skill = hit.point;
+            }
+
+            _heroInput.Owner = _runner.LocalPlayer;
+        }
+        
+        var loopRay = Camera.main.ScreenPointToRay(Input.mousePosition);
+        if (Physics.Raycast(loopRay, out var hit2, Mathf.Infinity, LayerMask.GetMask("Ground")))
+        {
+            _heroInput.MousePosition = new Vector3(hit2.point.x, 0, hit2.point.z);
+        }
+
+        
+        _heroInput.Buttons = new NetworkButtons(_heroInput.Buttons.Bits | buttons.Bits);
+
+        
+        input.Set(_heroInput);
+        resetInput = true;
+    }
     public void OnInputMissing(NetworkRunner runner, PlayerRef player, NetworkInput input) { }
     public void OnShutdown(NetworkRunner runner, ShutdownReason shutdownReason) { }
     public void OnConnectedToServer(NetworkRunner runner) { }
