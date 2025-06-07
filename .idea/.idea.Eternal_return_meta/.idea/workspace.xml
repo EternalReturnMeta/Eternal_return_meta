@@ -5,7 +5,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3cce88e6-c27e-4108-a3e9-b7a7cffe5d21" name="변경" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Eternal_return_meta/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Eternal_return_meta/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/MatchingManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/MatchingManager.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -155,7 +154,7 @@
       <workItem from="1749195786320" duration="585000" />
       <workItem from="1749196397975" duration="35000" />
       <workItem from="1749200711684" duration="2634000" />
-      <workItem from="1749281415149" duration="2005000" />
+      <workItem from="1749281415149" duration="2630000" />
     </task>
     <task id="LOCAL-00001" summary="1차커밋">
       <option name="closed" value="true" />
