@@ -100,6 +100,7 @@ public class MatchingManager : NetworkBehaviour
                 NetworkObject networkPlayerObject =
                     Runner.Spawn(playerPrefab, Vector3.zero, Quaternion.identity, playerInfo.Key);
                 Runner.SetPlayerObject(playerInfo.Key, networkPlayerObject);
+                Runner.SceneManager.MoveGameObjectToScene(networkPlayerObject.gameObject, SceneRef.FromIndex(1));
             }
             
             FindAnyObjectByType<MatchingManagerSpawner>().IsCompleteSpawn = true;
@@ -130,6 +131,8 @@ public class MatchingManager : NetworkBehaviour
                 SceneRef.FromIndex(1), 
                 LoadSceneMode.Additive
             );
+            
+            SceneManager.SetActiveScene(SceneRef.FromIndex(1));
         }
     }
 }
