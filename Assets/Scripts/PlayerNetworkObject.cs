@@ -8,9 +8,11 @@ public class PlayerNetworkObject : NetworkBehaviour
     {
         if (MatchingManager.Instance != null)
         {
+            Debug.Log("테스트용 첫번째 입니다.");
             MatchingManager.Instance.Rpc_SelectCharacter(characterId, Object.InputAuthority);
         }
     }
+    
     [Rpc(RpcSources.InputAuthority, RpcTargets.StateAuthority)]
     public void Rpc_RequestSelectUser(string nickname)
     {

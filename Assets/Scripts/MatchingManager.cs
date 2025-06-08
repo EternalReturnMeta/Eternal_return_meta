@@ -42,10 +42,12 @@ public class MatchingManager : NetworkBehaviour
     {
         if (!SelectedCharacters.ContainsKey(playerRef))
         {
+            Debug.Log("테스트 2번쨰입니다.");
             SelectedCharacters.Add(playerRef, characterId);
         }
         else
         {
+            Debug.Log("테스트 3번쨰입니다.");
             SelectedCharacters.Set(playerRef, characterId);
         }
     }
