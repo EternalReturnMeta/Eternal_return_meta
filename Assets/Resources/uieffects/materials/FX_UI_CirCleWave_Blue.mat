@@ -1,0 +1,82 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!21 &2100000
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: FX_UI_CirCleWave_Blue
+  m_Shader: {fileID: 4800000, guid: c74fe1e8001f6984c8b80367e8d537fd, type: 3}
+  m_Parent: {fileID: 0}
+  m_ModifiedSerializedProperties: 0
+  m_ValidKeywords: []
+  m_InvalidKeywords: []
+  m_LightmapFlags: 0
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_LockedProperties:
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+      _B_tex:
+        m_Texture: {fileID: 2800000, guid: 02e13e340f5d95c4cb31457701ade879, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+      _G_tex:
+        m_Texture: {fileID: 2800000, guid: da2f15c74cb4dcd4aae3facc05e67457, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+      _MainTex:
+        m_Texture: {fileID: 2800000, guid: cbf7b538d52d8d64b95fa26badd04f5b, type: 3}
+        m_Scale: {x: 0.5, y: 0.5}
+        m_Offset: {x: 0, y: 0}
+      _R_tex:
+        m_Texture: {fileID: 2800000, guid: da2f15c74cb4dcd4aae3facc05e67457, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Ints: {}
+    m_Floats:
+      _A_Speed: 0.13
+      _B_Speed: 0.22
+      _BumpScale: 1
+      _C_Speed: 0
+      _ColorMask: 0
+      _Cutoff: 0.5
+      _D_Speed: 0.13
+      _DetailNormalMapScale: 1
+      _DstBlend: 0
+      _GlossMapScale: 1
+      _Glossiness: 0.5
+      _GlossyReflections: 1
+      _Glow: 5
+      _Metallic: 0
+      _Mode: 0
+      _Noise: 1
+      _OcclusionStrength: 1
+      _Parallax: 0.02
+      _RotateSpeed: 0
+      _SmoothnessTextureChannel: 0
+      _SpecularHighlights: 1
+      _SrcBlend: 1
+      _Stencil: 0
+      _StencilComp: 0
+      _StencilOp: 0
+      _StencilReadMask: 0
+      _StencilWriteMask: 0
+      _UVSec: 0
+      _ZWrite: 1
+      __dirty: 0
+      _stvalue: 0.65
+      _value: 24.2
+    m_Colors:
+      _Color: {r: 0, g: 0.4684868, b: 1, a: 1}
+      _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
+      _MainTexUV_TilingSpeed: {r: 1, g: 1, b: -0.3, a: -0.5}
+      _MaskTexUV_TilingSpeed: {r: 1, g: 1, b: 0, a: 0}
+      _Noise01UV_TilingSpeed: {r: 1, g: 1, b: 0, a: 0}
+  m_BuildTextureStacks: []
