@@ -23,7 +23,7 @@ public class MatchingManager : NetworkBehaviour
     public NetworkDictionary<PlayerRef, string> SelectedUser => default;
     
     private int MaxPlayerCount { get; set; } = 2;
-    public const float LoadingDuration = 1f;
+    public const float LoadingDuration = 5f;
     public const float CharacterSelectDuration = 20f;
     public MenuUIController Controller { get; set; }
     
@@ -37,9 +37,6 @@ public class MatchingManager : NetworkBehaviour
         StartCoroutine(DelayedFind());
         
         spawner = FindAnyObjectByType<MatchingManagerSpawner>();
-        
-        if (Runner.IsServer)
-            StartCoroutine(DelayedCall());
     }
 
     private IEnumerator DelayedCall()
@@ -112,10 +109,11 @@ public class MatchingManager : NetworkBehaviour
             IsMatchingComplete = true;
             LoadingTimer = TickTimer.CreateFromSeconds(Runner, LoadingDuration);
             RPC_ShowLoading();
-
         }
         if (IsMatchingComplete && LoadingTimer.Expired(Runner) && !IsCharacterSelectActive)
         {
+            // if (Runner.IsServer)
+            //     StartCoroutine(DelayedCall());
             CharacterSelectTimer = TickTimer.CreateFromSeconds(Runner, CharacterSelectDuration);
             IsCharacterSelectActive = true;
             RPC_GoToCharacterSelect();

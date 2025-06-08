@@ -19,7 +19,7 @@ namespace Fusion.Menu
     {
         [SerializeField] protected TMP_Text _countText;
         [SerializeField] protected Image countGague;
-        private float duration = 1f;
+        private float duration = 5f;
         private Coroutine _countCoroutine;
         partial void AwakeUser();
         partial void InitUser();
@@ -106,11 +106,12 @@ namespace Fusion.Menu
 
                 yield return null;
             }
-
+            
             // 최종 값 보정
             countGague.fillAmount = 1f;
             _countText.text = "5";
             _countCoroutine = null;
+            SettingUserCharacter();
         }
     }
 }
