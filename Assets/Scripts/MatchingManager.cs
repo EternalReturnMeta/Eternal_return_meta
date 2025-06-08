@@ -51,7 +51,7 @@ public class MatchingManager : NetworkBehaviour
     [Rpc(RpcSources.StateAuthority, RpcTargets.All)]
     public void Rpc_SelectUser(string user, PlayerRef playerRef)
     {
-        if (!SelectedCharacters.ContainsKey(playerRef))
+        if (!SelectedUser.ContainsKey(playerRef))
         {
             SelectedUser.Add(playerRef, user);
         }
