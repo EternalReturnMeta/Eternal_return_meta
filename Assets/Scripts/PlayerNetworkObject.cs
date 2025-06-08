@@ -12,7 +12,7 @@ public class PlayerNetworkObject : NetworkBehaviour
             MatchingManager.Instance.Rpc_SelectCharacter(characterId, Object.InputAuthority);
         }
     }
-    [Rpc(RpcSources.InputAuthority, RpcTargets.StateAuthority)]
+    [Rpc(RpcSources.InputAuthority, RpcTargets.All)]
     public void Rpc_SetNickname(string nickname)
     {
         Nickname = nickname;
