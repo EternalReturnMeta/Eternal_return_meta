@@ -147,6 +147,7 @@ public class MatchingManager : NetworkBehaviour
             Controller.Get<UIGamePlay>().UpdateUI(playerInfo.Value);
         } 
         Controller.Hide<FusionMenuUIMain>();
+        Controller.Hide<FusionMenuUILoading>();
         Controller.Hide<MatchingModal>();
         Controller.Hide<FusionMenuUICharacterSelect>();
     }
