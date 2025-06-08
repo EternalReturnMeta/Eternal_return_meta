@@ -93,7 +93,6 @@ public class MatchingManager : NetworkBehaviour
             IsMatchingComplete = true;
             LoadingTimer = TickTimer.CreateFromSeconds(Runner, LoadingDuration);
             RPC_ShowLoading();
-            
         }
         if (IsMatchingComplete && LoadingTimer.Expired(Runner) && !IsCharacterSelectActive)
         {
@@ -138,6 +137,13 @@ public class MatchingManager : NetworkBehaviour
     }
 
     [Rpc(RpcSources.InputAuthority, RpcTargets.All)]
+    private void RPC_Setting()
+    {
+        var loading = Controller.Get<FusionMenuUILoading>();
+        loading.SettingUserCharacter();
+    }
+
+    [Rpc(RpcSources.StateAuthority, RpcTargets.All)]
     private void RPC_ShowLoading()
     {
         Controller.Show<FusionMenuUILoading>();

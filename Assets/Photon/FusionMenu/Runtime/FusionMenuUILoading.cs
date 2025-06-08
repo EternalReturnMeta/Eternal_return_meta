@@ -43,6 +43,11 @@ namespace Fusion.Menu
             base.Show();
             _countCoroutine = StartCoroutine(CountCoroutine(duration));
             
+            ShowUser();
+        }
+
+        public void SettingUserCharacter()
+        {
             var manager = MatchingManager.Instance;
             PlayerNetworkObject myPlayer = null;
             if (manager != null)
@@ -66,7 +71,6 @@ namespace Fusion.Menu
                     Debug.Log($"{ConnectionArgs.Username} : Username 입니다.");
                 }
             }
-            ShowUser();
         }
 
         public override void Hide()
