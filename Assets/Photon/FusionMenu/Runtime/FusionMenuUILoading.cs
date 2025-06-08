@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using Fusion.Photon.Realtime;
 using TMPro;
@@ -25,6 +26,11 @@ namespace Fusion.Menu
         partial void InitUser();
         partial void ShowUser();
         partial void HideUser();
+
+        public void OnEnable()
+        {
+            SettingUserCharacter();
+        }
 
         public override void Awake()
         {

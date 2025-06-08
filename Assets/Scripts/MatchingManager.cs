@@ -35,8 +35,8 @@ public class MatchingManager : NetworkBehaviour
         if (Controller == null)
             Controller = FindAnyObjectByType<MenuUIController>();
         spawner = FindAnyObjectByType<MatchingManagerSpawner>();
-        if (HasInputAuthority)
-            RPC_Setting();
+        // if (HasInputAuthority)
+        //     RPC_Setting();
     }
 
     [Rpc(RpcSources.StateAuthority, RpcTargets.All)]
@@ -139,12 +139,12 @@ public class MatchingManager : NetworkBehaviour
         }
     }
 
-    [Rpc(RpcSources.InputAuthority, RpcTargets.All)]
-    private void RPC_Setting()
-    {
-        var loading = Controller.Get<FusionMenuUILoading>();
-        loading.SettingUserCharacter();
-    }
+    // [Rpc(RpcSources.InputAuthority, RpcTargets.All)]
+    // private void RPC_Setting()
+    // {
+    //     var loading = Controller.Get<FusionMenuUILoading>();
+    //     loading.SettingUserCharacter();
+    // }
 
     [Rpc(RpcSources.StateAuthority, RpcTargets.All)]
     private void RPC_ShowLoading()
