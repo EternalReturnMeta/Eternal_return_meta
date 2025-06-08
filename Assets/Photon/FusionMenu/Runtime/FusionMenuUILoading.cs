@@ -29,6 +29,7 @@ namespace Fusion.Menu
 
         public void OnEnable()
         {
+            Debug.Log("작동완료");
             SettingUserCharacter();
         }
 
@@ -86,6 +87,7 @@ namespace Fusion.Menu
                 }
             }
         }
+        
         private IEnumerator CountCoroutine(float duration)
         {
             float elapsed = 0f;
