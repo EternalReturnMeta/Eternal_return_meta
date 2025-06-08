@@ -23,7 +23,7 @@ public class MatchingManager : NetworkBehaviour
     public NetworkDictionary<PlayerRef, string> SelectedUser => default;
     
     private int MaxPlayerCount { get; set; } = 2;
-    public const float LoadingDuration = 5f;
+    public const float LoadingDuration = 1f;
     public const float CharacterSelectDuration = 20f;
     public MenuUIController Controller { get; set; }
     
