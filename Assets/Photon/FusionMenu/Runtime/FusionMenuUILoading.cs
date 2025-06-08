@@ -48,7 +48,6 @@ namespace Fusion.Menu
         {
             base.Show();
             _countCoroutine = StartCoroutine(CountCoroutine(duration));
-            
             ShowUser();
         }
 

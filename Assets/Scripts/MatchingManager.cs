@@ -34,24 +34,12 @@ public class MatchingManager : NetworkBehaviour
         Instance = this;
         if (Controller == null)
             Controller = FindAnyObjectByType<MenuUIController>();
-        StartCoroutine(DelayedFind());
         
         spawner = FindAnyObjectByType<MatchingManagerSpawner>();
     }
 
-    private IEnumerator DelayedCall()
-    {
-        yield return new WaitUntil(() => Runner.ActivePlayers.Count() >= 2);
-        yield return null;
-        
-        RPC_Setting();
-    }
 
-    private IEnumerator DelayedFind()
-    {
-        yield return new WaitUntil(() => Controller != null);
-        yield return null;
-    }
+
 
     [Rpc(RpcSources.StateAuthority, RpcTargets.All)]
     public void Rpc_SelectCharacter(CharacterDataEnum characterId, PlayerRef playerRef)
@@ -153,13 +141,7 @@ public class MatchingManager : NetworkBehaviour
             }
         }
     }
-
-    [Rpc(RpcSources.StateAuthority, RpcTargets.All)]
-    private void RPC_Setting()
-    {
-        var loading = Controller.Get<FusionMenuUILoading>();
-        loading.SettingUserCharacter();
-    }
+    
 
     [Rpc(RpcSources.StateAuthority, RpcTargets.All)]
     private void RPC_ShowLoading()
