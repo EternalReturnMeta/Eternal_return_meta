@@ -19,7 +19,7 @@ namespace Fusion.Menu
     {
         [SerializeField] protected TMP_Text _countText;
         [SerializeField] protected Image countGague;
-        private float duration = 1f;
+        private float duration = 5f;
         private Coroutine _countCoroutine;
         partial void AwakeUser();
         partial void InitUser();
