@@ -160,6 +160,14 @@ public class MatchingManager : NetworkBehaviour
     {
         if (Object.HasStateAuthority) // 서버에서만 씬 로드 실행
         {
+            Controller.Show<UIGamePlay>();
+            foreach (var playerInfo in SelectedCharacters)
+            {
+                Controller.Get<UIGamePlay>().UpdateUI(playerInfo.Value);
+            }
+            Controller.Hide<FusionMenuUIMain>();
+            Controller.Hide<MatchingModal>();
+            Controller.Hide<FusionMenuUICharacterSelect>();
             // GameScene을 Additive 모드로 로드
             Runner.LoadScene(
                 SceneRef.FromIndex(1), 

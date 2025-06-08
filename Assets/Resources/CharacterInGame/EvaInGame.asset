@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 32f2508c2f4d4c77ac86ae0172b4511b, type: 3}
+  m_Name: EvaInGame
+  m_EditorClassIdentifier: 
+  SkillQ: {fileID: 21300000, guid: 57f5c6a9b22db8b4aa43315ed6096740, type: 2}
+  SkillW: {fileID: 21300000, guid: cf9ad9d8ecfefb24d89167d9a30d4bad, type: 2}
+  SkillE: {fileID: 21300000, guid: 0971be4d68bdd7b47a5a8ce12e9e0c44, type: 2}
+  SkillR: {fileID: 21300000, guid: a47537fddb641d14094637f8331578f7, type: 2}
+  SkillPassive: {fileID: 21300000, guid: b5f414eeaf46d0148a824b351e521ea5, type: 2}
+  CharacterProfile: {fileID: 21300000, guid: 448c452b114e9df468a0ce671b3607ce, type: 2}
+  HpBar: 100
+  ManaBar: 100

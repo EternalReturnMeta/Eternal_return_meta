@@ -10,17 +10,38 @@ using UnityEngine.UI;
 public partial class UIGamePlay : FusionMenuUIScreen
 {
     // 플레이어 이름 목록 표시용 텍스트
-    [SerializeField] protected TMP_Text _playersText;
+    [SerializeField] protected Image SkillQ;
+
+    [SerializeField] protected Image SkillW;
+    [SerializeField] protected Image SkillE;
+    [SerializeField] protected Image SkillR;
+    [SerializeField] protected Image SkillPassive;
+    [SerializeField] protected Image CharacterProfile;
+    
+    [SerializeField] protected TMP_Text HpBar;
+    [SerializeField] protected TMP_Text ManaBar;
 
     // 연결 해제 버튼
-    [SerializeField] protected Button _disconnectButton;
-    public float UpdateUsernameRateInSeconds = 2;
-    protected Coroutine _updateUsernameCoroutine;
+    [SerializeField] protected CharacterInGameData[] _characterInGameData;
+
+    private string MaxHp;
 
     partial void AwakeUser();
     partial void InitUser();
     partial void ShowUser();
     partial void HideUser();
+    public void UpdateUI(CharacterDataEnum character)
+    {
+        int i = (int)character;
+        SkillQ.sprite = _characterInGameData[i].SkillQ;
+        SkillW.sprite = _characterInGameData[i].SkillW;
+        SkillE.sprite = _characterInGameData[i].SkillE;
+        SkillR.sprite = _characterInGameData[i].SkillR;
+        SkillPassive.sprite = _characterInGameData[i].SkillPassive;
+        CharacterProfile.sprite = _characterInGameData[i].CharacterProfile;
+        HpBar.text = $"{_characterInGameData[i].HpBar} / {_characterInGameData[i].HpBar}";
+        ManaBar.text = $"{_characterInGameData[i].ManaBar} / {_characterInGameData[i].ManaBar}";
+    }
 
     public override void Awake()
     {
@@ -35,12 +56,6 @@ public partial class UIGamePlay : FusionMenuUIScreen
         base.Show();
         ShowUser();
         
-        UpdateUsernames();
-
-        if (UpdateUsernameRateInSeconds > 0)
-        {
-            _updateUsernameCoroutine = StartCoroutine((UpdateUsernamesCoroutine()));
-        }
     }
 
     // 화면이 닫힐 때 호출
@@ -49,13 +64,8 @@ public partial class UIGamePlay : FusionMenuUIScreen
     {
         base.Hide();
         HideUser();
-
-        if (_updateUsernameCoroutine != null)
-        {
-            StopCoroutine(_updateUsernameCoroutine);
-            _updateUsernameCoroutine = null;
-        }
     }
+
 
     // 연결 끊기 버튼이 눌렸을 때 실행됨
     // 연결을 끊고 메인 메뉴 화면 으로 전환
@@ -64,22 +74,4 @@ public partial class UIGamePlay : FusionMenuUIScreen
         await Connection.DisconnectAsync(ConnectFailReason.UserRequest);
         Controller.Show<FusionMenuUIMain>();
     }
-    
-    // UpdateUsernameRateInSeconds 주기로 플레이어 목록 갱신
-    protected virtual IEnumerator UpdateUsernamesCoroutine()
-    {
-        while (UpdateUsernameRateInSeconds > 0)
-        {
-            yield return new WaitForSeconds(UpdateUsernameRateInSeconds);
-            UpdateUsernames();
-        }
-    }
-    // 현재 접속 중인 플레이어 이름을 표시
-    // 총 접속자 수와 최대 인원 수를 함께 표시
-    // 플레이어가 없으면 해당 UI 전체 비활성화
-    protected virtual void UpdateUsernames()
-    {
-        
-    }
-
 }

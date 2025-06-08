@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 32f2508c2f4d4c77ac86ae0172b4511b, type: 3}
+  m_Name: ShoichiInGame
+  m_EditorClassIdentifier: 
+  SkillQ: {fileID: 21300000, guid: 07e477bb5d64a1c4fab49e1be60018f5, type: 2}
+  SkillW: {fileID: 21300000, guid: ea38a55af6cf0f643aeb6af4f2a957dd, type: 2}
+  SkillE: {fileID: 21300000, guid: 7d17a7e822ba36e4aa6248662d78da5e, type: 2}
+  SkillR: {fileID: 21300000, guid: f5d811b6b0be4b54b946199ce091e5e1, type: 2}
+  SkillPassive: {fileID: 21300000, guid: 25408f3885e2a0541974a8555134486d, type: 2}
+  CharacterProfile: {fileID: 21300000, guid: c076bdbd44c08694b996e8cd6a526e29, type: 2}
+  HpBar: 110
+  ManaBar: 110

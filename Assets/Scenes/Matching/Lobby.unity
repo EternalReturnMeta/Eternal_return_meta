@@ -3060,6 +3060,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1788129072}
   - component: {fileID: 1788129073}
+  - component: {fileID: 1788129074}
   m_Layer: 5
   m_Name: CobaltGamePlay
   m_TagString: Untagged
@@ -3096,6 +3097,31 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1788129071}
   m_CullTransparentMesh: 1
+--- !u!114 &1788129074
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1788129071}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 43e9b7c9b4984b9580cb68b69360c2b6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _isModal: 0
+  _plugins: []
+  SkillQ: {fileID: 3971903612794125138}
+  SkillW: {fileID: 3972050873573564825}
+  SkillE: {fileID: 3971235002477259618}
+  SkillR: {fileID: 3972092101451381804}
+  SkillPassive: {fileID: 3969588464408314469}
+  CharacterProfile: {fileID: 4790796828291380300}
+  HpBar: {fileID: 4791255805448488699}
+  ManaBar: {fileID: 4791103242064550975}
+  _characterInGameData:
+  - {fileID: 11400000, guid: 74722535bbbedf547b775422fce4d7b1, type: 2}
+  - {fileID: 11400000, guid: d795d7d1582f44642b92d409e04e1330, type: 2}
 --- !u!1 &1872070499
 GameObject:
   m_ObjectHideFlags: 0

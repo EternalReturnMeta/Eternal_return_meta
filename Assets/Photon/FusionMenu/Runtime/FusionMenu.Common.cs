@@ -734,6 +734,14 @@ namespace Fusion.Menu
                 Debug.LogError($"Show() - Screen type '{typeof(S).Name}' not found");
             }
         }
+
+        public virtual void Hide<S>() where S : FusionMenuUIScreen
+        {
+            if (_screenLookup.TryGetValue(typeof(S), out var result))
+            {
+                result.Hide();
+            }
+        }
         // _screenLookup에서 타입 S에 해당하는 화면이 있으면 그것을 반환
         public virtual S Get<S>() where S : FusionMenuUIScreen
         {
