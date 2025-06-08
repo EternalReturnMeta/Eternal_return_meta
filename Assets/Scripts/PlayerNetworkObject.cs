@@ -16,6 +16,7 @@ public class PlayerNetworkObject : NetworkBehaviour
     {
         if (MatchingManager.Instance != null)
         {
+            Debug.Log("첫번째 입니다.");
             MatchingManager.Instance.Rpc_SelectUser(nickname, Object.InputAuthority);
         }
     }

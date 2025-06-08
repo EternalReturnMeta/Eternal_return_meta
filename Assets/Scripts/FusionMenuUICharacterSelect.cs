@@ -78,7 +78,7 @@ namespace Fusion.Menu
             var sortedUser = MatchingManager.Instance.SelectedUser
                 .OrderBy(pair => pair.Key.PlayerId)
                 .ToList();
-            Debug.Log(sortedUser.Count);
+            Debug.Log($"{sortedUser.Count} SortedUser입니다.");
             for (int i = 0; i < sortedUser.Count && i < playerImages.Length; i++)
             {
                 string name = sortedUser[i].Value;

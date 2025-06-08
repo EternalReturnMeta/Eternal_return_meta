@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Fusion;
 using Fusion.Addons.SimpleKCC;
 using Fusion.Menu;
+using UnityEditor.Rendering;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -17,6 +18,7 @@ public class MatchingManager : NetworkBehaviour
     [Networked] public NetworkBool IsCompleteSpawn { get; set; }
     [Networked, Capacity(2)]
     public NetworkDictionary<PlayerRef, CharacterDataEnum> SelectedCharacters => default;
+    
     [Networked, Capacity(2)] 
     public NetworkDictionary<PlayerRef, string> SelectedUser => default;
     
@@ -53,10 +55,12 @@ public class MatchingManager : NetworkBehaviour
     {
         if (!SelectedUser.ContainsKey(playerRef))
         {
+            Debug.Log("2번째입니다.");
             SelectedUser.Add(playerRef, user);
         }
         else
         {
+            Debug.Log("3번째입니다.");
             SelectedUser.Set(playerRef, user);
         }
     }
