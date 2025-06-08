@@ -83,6 +83,7 @@ namespace Fusion.Menu
             for (int i = 0; i < sortedUser.Count && i < playerImages.Length; i++)
             {
                 string name = sortedUser[i].Value;
+                Debug.Log($"{name} : name 입니다.");
                 playerNames[i].text = name;
             }
         }
