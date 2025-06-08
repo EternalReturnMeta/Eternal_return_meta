@@ -139,7 +139,7 @@ public class MatchingManager : NetworkBehaviour
         }
     }
 
-    // [Rpc(RpcSources.InputAuthority, RpcTargets.All)]
+    // [Rpc(RpcSources.StateAuthority, RpcTargets.All)]
     // private void RPC_Setting()
     // {
     //     var loading = Controller.Get<FusionMenuUILoading>();
