@@ -142,10 +142,10 @@ public class MatchingManager : NetworkBehaviour
     private void RPC_UIInit()
     {
         Controller.Show<UIGamePlay>();
-        foreach (var playerInfo in SelectedCharacters)
+        if (HasInputAuthority)
         {
-            Controller.Get<UIGamePlay>().UpdateUI(playerInfo.Value);
-        } 
+            Controller.Get<UIGamePlay>().UpdateUI(SelectedCharacters.Get(Runner.LocalPlayer));
+        }
         Controller.Hide<FusionMenuUIMain>();
         Controller.Hide<FusionMenuUILoading>();
         Controller.Hide<MatchingModal>();
