@@ -93,6 +93,7 @@ public class MatchingManager : NetworkBehaviour
             IsMatchingComplete = true;
             LoadingTimer = TickTimer.CreateFromSeconds(Runner, LoadingDuration);
             RPC_ShowLoading();
+            RPC_Setting();
         }
         if (IsMatchingComplete && LoadingTimer.Expired(Runner) && !IsCharacterSelectActive)
         {
