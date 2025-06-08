@@ -2,7 +2,6 @@ using System;
 using System.Collections;
 using Fusion.Photon.Realtime;
 using TMPro;
-using UnityEditor.Rendering;
 
 namespace Fusion.Menu
 {
@@ -27,11 +26,11 @@ namespace Fusion.Menu
         partial void ShowUser();
         partial void HideUser();
 
-        public void OnEnable()
-        {
-            Debug.Log("작동완료");
-            SettingUserCharacter();
-        }
+        // public void OnEnable()
+        // {
+        //     Debug.Log("작동완료");
+        //     SettingUserCharacter();
+        // }
 
         public override void Awake()
         {

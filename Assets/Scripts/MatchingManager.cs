@@ -1,9 +1,9 @@
+using System.Collections;
 using System.Linq;
 using System.Collections.Generic;
 using Fusion;
 using Fusion.Addons.SimpleKCC;
 using Fusion.Menu;
-using UnityEditor.Rendering;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -35,8 +35,17 @@ public class MatchingManager : NetworkBehaviour
         if (Controller == null)
             Controller = FindAnyObjectByType<MenuUIController>();
         spawner = FindAnyObjectByType<MatchingManagerSpawner>();
-        // if (HasInputAuthority)
-        //     RPC_Setting();
+
+        StartCoroutine(DelayedCall());
+    }
+
+    private IEnumerator DelayedCall()
+    {
+        yield return new WaitUntil(() => Runner.ActivePlayers.Count() >= 2);
+        yield return null;
+        
+        if (HasStateAuthority)
+            RPC_Setting();
     }
 
     [Rpc(RpcSources.StateAuthority, RpcTargets.All)]
@@ -139,12 +148,12 @@ public class MatchingManager : NetworkBehaviour
         }
     }
 
-    // [Rpc(RpcSources.StateAuthority, RpcTargets.All)]
-    // private void RPC_Setting()
-    // {
-    //     var loading = Controller.Get<FusionMenuUILoading>();
-    //     loading.SettingUserCharacter();
-    // }
+    [Rpc(RpcSources.StateAuthority, RpcTargets.All)]
+    private void RPC_Setting()
+    {
+        var loading = Controller.Get<FusionMenuUILoading>();
+        loading.SettingUserCharacter();
+    }
 
     [Rpc(RpcSources.StateAuthority, RpcTargets.All)]
     private void RPC_ShowLoading()
