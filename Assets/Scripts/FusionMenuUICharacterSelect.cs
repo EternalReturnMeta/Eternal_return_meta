@@ -63,7 +63,6 @@ namespace Fusion.Menu
                 img.color = new Color(1, 1, 1, 0f);
                 img.sprite = null;
             }
-            Debug.Log($"{sortedPlayers.Count} SortedPlayer입니다.");
             for (int i = 0; i < sortedPlayers.Count && i < playerImages.Length; i++)
             {
                 int charId = (int)sortedPlayers[i].Value;
@@ -79,11 +78,9 @@ namespace Fusion.Menu
             var sortedUser = MatchingManager.Instance.SelectedUser
                 .OrderBy(pair => pair.Key.PlayerId)
                 .ToList();
-            Debug.Log($"{sortedUser.Count} SortedUser입니다.");
             for (int i = 0; i < sortedUser.Count && i < playerImages.Length; i++)
             {
                 string name = sortedUser[i].Value;
-                Debug.Log($"{name} : name 입니다.");
                 playerNames[i].text = name;
             }
         }

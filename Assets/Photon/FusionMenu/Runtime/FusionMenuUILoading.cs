@@ -80,8 +80,6 @@ namespace Fusion.Menu
                 {
                     myPlayer.Rpc_RequestSelectCharacter(CharacterDataEnum.None);
                     myPlayer.Rpc_RequestSelectUser(ConnectionArgs.Username);
-
-                    Debug.Log($"{ConnectionArgs.Username} : Username 입니다.");
                 }
             }
         }

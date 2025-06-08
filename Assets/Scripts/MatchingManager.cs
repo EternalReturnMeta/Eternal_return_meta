@@ -46,12 +46,10 @@ public class MatchingManager : NetworkBehaviour
     {
         if (!SelectedCharacters.ContainsKey(playerRef))
         {
-            Debug.Log("테스트 2번쨰입니다.");
             SelectedCharacters.Add(playerRef, characterId);
         }
         else
         {
-            Debug.Log("테스트 3번쨰입니다.");
             SelectedCharacters.Set(playerRef, characterId);
         }
     }
@@ -61,12 +59,10 @@ public class MatchingManager : NetworkBehaviour
     {
         if (!SelectedUser.ContainsKey(playerRef))
         {
-            Debug.Log("2번째입니다.");
             SelectedUser.Add(playerRef, user);
         }
         else
         {
-            Debug.Log("3번째입니다.");
             SelectedUser.Set(playerRef, user);
         }
     }
@@ -134,8 +130,7 @@ public class MatchingManager : NetworkBehaviour
                     NetworkObject networkPlayerObject =
                         Runner.Spawn(playerPrefab, Vector3.zero, Quaternion.identity, playerInfo.Key);
                     Runner.SetPlayerObject(playerInfo.Key, networkPlayerObject);
-                } 
-                
+                }
                 RPC_TurnOffSecondCamera();
                 spawner.IsCompleteSpawn = true;
             }
@@ -160,14 +155,6 @@ public class MatchingManager : NetworkBehaviour
     {
         if (Object.HasStateAuthority) // 서버에서만 씬 로드 실행
         {
-            Controller.Show<UIGamePlay>();
-            foreach (var playerInfo in SelectedCharacters)
-            {
-                Controller.Get<UIGamePlay>().UpdateUI(playerInfo.Value);
-            }
-            Controller.Hide<FusionMenuUIMain>();
-            Controller.Hide<MatchingModal>();
-            Controller.Hide<FusionMenuUICharacterSelect>();
             // GameScene을 Additive 모드로 로드
             Runner.LoadScene(
                 SceneRef.FromIndex(1), 
@@ -179,6 +166,14 @@ public class MatchingManager : NetworkBehaviour
     [Rpc(RpcSources.StateAuthority, RpcTargets.All)]
     public void RPC_TurnOffSecondCamera()
     {
+        Controller.Show<UIGamePlay>();
+        foreach (var playerInfo in SelectedCharacters)
+        {
+            Controller.Get<UIGamePlay>().UpdateUI(playerInfo.Value);
+        } 
+        Controller.Hide<FusionMenuUIMain>();
+        Controller.Hide<MatchingModal>();
+        Controller.Hide<FusionMenuUICharacterSelect>();
         spawner.MainCamera.SetActive(false);
     }
 }
