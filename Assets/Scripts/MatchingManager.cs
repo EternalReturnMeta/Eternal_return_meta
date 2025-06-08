@@ -35,8 +35,9 @@ public class MatchingManager : NetworkBehaviour
         if (Controller == null)
             Controller = FindAnyObjectByType<MenuUIController>();
         spawner = FindAnyObjectByType<MatchingManagerSpawner>();
-
-        StartCoroutine(DelayedCall());
+        
+        if (Runner.IsServer)
+            StartCoroutine(DelayedCall());
     }
 
     private IEnumerator DelayedCall()
@@ -44,8 +45,7 @@ public class MatchingManager : NetworkBehaviour
         yield return new WaitUntil(() => Runner.ActivePlayers.Count() >= 2);
         yield return null;
         
-        if (HasStateAuthority)
-            RPC_Setting();
+        RPC_Setting();
     }
 
     [Rpc(RpcSources.StateAuthority, RpcTargets.All)]
