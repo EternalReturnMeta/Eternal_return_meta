@@ -17,7 +17,7 @@ public class MatchingManager : NetworkBehaviour
     [Networked] public NetworkBool IsCompleteSpawn { get; set; }
     [Networked, Capacity(2)]
     public NetworkDictionary<PlayerRef, CharacterDataEnum> SelectedCharacters => default;
-
+    [Networked, Capacity(2)] 
     public NetworkDictionary<PlayerRef, string> SelectedUser => default;
     
     private int MaxPlayerCount { get; set; } = 2;

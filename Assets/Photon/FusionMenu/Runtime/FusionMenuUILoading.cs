@@ -1,6 +1,7 @@
 using System.Collections;
 using Fusion.Photon.Realtime;
 using TMPro;
+using UnityEditor.Rendering;
 
 namespace Fusion.Menu
 {
@@ -61,6 +62,8 @@ namespace Fusion.Menu
                 {
                     myPlayer.Rpc_RequestSelectCharacter(CharacterDataEnum.None);
                     myPlayer.Rpc_RequestSelectUser(ConnectionArgs.Username);
+                    
+                    Debug.Log($"{ConnectionArgs.Username} : Username 입니다.");
                 }
             }
             ShowUser();
