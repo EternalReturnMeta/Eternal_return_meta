@@ -141,15 +141,15 @@ public class MatchingManager : NetworkBehaviour
     [Rpc(RpcSources.StateAuthority, RpcTargets.All)]
     private void RPC_UIInit()
     {
-        Controller.Show<UIGamePlay>();
         if (HasInputAuthority)
         {
+            Controller.Show<UIGamePlay>();
             Controller.Get<UIGamePlay>().UpdateUI(SelectedCharacters.Get(Runner.LocalPlayer));
+            Controller.Hide<FusionMenuUIMain>();
+            Controller.Hide<FusionMenuUILoading>();
+            Controller.Hide<MatchingModal>();
+            Controller.Hide<FusionMenuUICharacterSelect>();
         }
-        Controller.Hide<FusionMenuUIMain>();
-        Controller.Hide<FusionMenuUILoading>();
-        Controller.Hide<MatchingModal>();
-        Controller.Hide<FusionMenuUICharacterSelect>();
     }
     [Rpc(RpcSources.StateAuthority, RpcTargets.All)]
     private void RPC_ShowLoading()
