@@ -8,7 +8,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: FX_BI_Ray_04
-  m_Shader: {fileID: 4800000, guid: b145de9a5c51f9a42a446a15ae1a94ca, type: 3}
+  m_Shader: {fileID: 4800000, guid: a74fae9409dfa9f4ba74339c6d80fba2, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords: []
@@ -24,7 +24,7 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
       _MainTex:
-        m_Texture: {fileID: 2800000, guid: f1494056f616d834ea1cb6fade1d7dbb, type: 3}
+        m_Texture: {fileID: 2800000, guid: 681bb20472308174f8f7a377ba8df390, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Ints: {}

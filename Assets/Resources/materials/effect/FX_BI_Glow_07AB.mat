@@ -8,7 +8,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: FX_BI_Glow_07AB
-  m_Shader: {fileID: 4800000, guid: b8b9bb0593960b543b368758d0a7c473, type: 3}
+  m_Shader: {fileID: 4800000, guid: 18d6005dde319074887f7c8cecd36716, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords: []
@@ -24,7 +24,7 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
       _MainTex:
-        m_Texture: {fileID: 2800000, guid: 6b0c855695d94cd44be5f77c65065e50, type: 3}
+        m_Texture: {fileID: 2800000, guid: 18b1d3910b0f1c7408cea25c34e904b8, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Ints: {}

@@ -1,4 +1,5 @@
 using System.Collections;
+using Fusion.Photon.Realtime;
 using TMPro;
 
 namespace Fusion.Menu
@@ -55,9 +56,12 @@ namespace Fusion.Menu
                 {
                     Debug.Log("TryGetPlayerObject failed");
                 }
-            
-                if (myPlayer != null) 
+
+                if (myPlayer != null)
+                {
                     myPlayer.Rpc_RequestSelectCharacter(CharacterDataEnum.None);
+                    myPlayer.Rpc_SetNickname(ConnectionArgs.Username);
+                }
             }
             ShowUser();
         }

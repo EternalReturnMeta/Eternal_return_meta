@@ -4,12 +4,6 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-public enum CharacterDataEnum
-{
-    Eva,
-    Shoichi,
-    None,
-}
 namespace Fusion.Menu
 {
     public partial class FusionMenuUICharacterSelect : FusionMenuUIScreen
@@ -20,6 +14,7 @@ namespace Fusion.Menu
         [SerializeField] private Image countGauge;
         [SerializeField] private CharacterData[] playerData;
         [SerializeField] private Image[] playerImages;
+        [SerializeField] private TMP_Text[] playerNames;
         [SerializeField] private Image FullImage;
         [SerializeField] private GameObject Deco;
         [SerializeField] private TMP_Text _characterName;
@@ -61,16 +56,7 @@ namespace Fusion.Menu
             var sortedPlayers = MatchingManager.Instance.SelectedCharacters
                 .OrderBy(pair => pair.Key.PlayerId)
                 .ToList();
-            // foreach (var pair in MatchingManager.Instance.SelectedCharacters)
-            // {
-            //     var a = pair.Key.PlayerId - 1;
-            //     int charId = (int)pair.Value;
-            //     if (a < playerImages.Length && charId < playerData.Length)
-            //     {
-            //         playerImages[a].color = new Color(1f, 1f, 1f, 1f);
-            //         playerImages[a].sprite = playerData[charId].vsImage;
-            //     }
-            // }
+
             // 모든 이미지 초기화
             foreach (var img in playerImages)
             {
@@ -79,12 +65,16 @@ namespace Fusion.Menu
             }
             for (int i = 0; i < sortedPlayers.Count && i < playerImages.Length; i++)
             {
+                var PlayerRef = sortedPlayers[i].Key;
                 int charId = (int)sortedPlayers[i].Value;
                 if (charId == 2)
                     continue;
+                var playerObj = MatchingManager.Instance.Runner.GetPlayerObject(PlayerRef);
+                var nickname = playerObj.GetComponent<PlayerNetworkObject>().Nickname;
                 if (charId < playerData.Length)
                 {
                     playerImages[i].color = new Color(1f, 1f, 1f, 1f);
+                    playerNames[i].text = nickname;
                     playerImages[i].sprite = playerData[charId].vsImage;
                 }
             }

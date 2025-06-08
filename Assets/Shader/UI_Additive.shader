@@ -58,35 +58,58 @@
 //		}
 //	}
 //}
-Shader "UI/CustomAdditiveGlow"
+Shader "UI/Additive_Builtin"
 {
     Properties
     {
-        _MainTex ("Texture", 2D) = "white" {}
+        _MainTex ("Sprite Texture", 2D) = "white" {}
         _Color ("Tint", Color) = (1,1,1,1)
+        _StencilComp ("Stencil Comparison", Float) = 8
+        _Stencil ("Stencil ID", Float) = 0
+        _StencilOp ("Stencil Operation", Float) = 0
+        _StencilWriteMask ("Stencil Write Mask", Float) = 255
+        _StencilReadMask ("Stencil Read Mask", Float) = 255
+        _ColorMask ("Color Mask", Float) = 15
+        [Toggle(UNITY_UI_ALPHACLIP)] _UseUIAlphaClip ("Use Alpha Clip", Float) = 0
     }
 
     SubShader
     {
         Tags {
             "Queue" = "Transparent"
-            "IgnoreProjector" = "True"
             "RenderType" = "Transparent"
-            "PreviewType"="Plane"
-            "CanUseSpriteAtlas"="True"
+            "IgnoreProjector" = "True"
+            "PreviewType" = "Plane"
+            "CanUseSpriteAtlas" = "True"
         }
-
-        Cull Off
-        Lighting Off
-        ZWrite Off
-        Blend One One
 
         Pass
         {
+            Name "UIAdditivePass"
+            Blend One One
+            ZWrite Off
+            Cull Off
+            ColorMask [_ColorMask]
+
+            Stencil
+            {
+                Ref [_Stencil]
+                Comp [_StencilComp]
+                Pass [_StencilOp]
+                ReadMask [_StencilReadMask]
+                WriteMask [_StencilWriteMask]
+            }
+
             CGPROGRAM
             #pragma vertex vert
             #pragma fragment frag
+            #pragma multi_compile _ UNITY_UI_ALPHACLIP
+
             #include "UnityCG.cginc"
+
+            sampler2D _MainTex;
+            float4 _MainTex_ST;
+            fixed4 _Color;
 
             struct appdata_t
             {
@@ -97,26 +120,29 @@ Shader "UI/CustomAdditiveGlow"
             struct v2f
             {
                 float4 vertex : SV_POSITION;
-                float2 texcoord : TEXCOORD0;
+                float2 uv : TEXCOORD0;
             };
 
-            sampler2D _MainTex;
-            float4 _MainTex_ST;
-            fixed4 _Color;
-
-            v2f vert(appdata_t IN)
+            v2f vert(appdata_t v)
             {
-                v2f OUT;
-                OUT.vertex = UnityObjectToClipPos(IN.vertex);
-                OUT.texcoord = TRANSFORM_TEX(IN.texcoord, _MainTex);
-                return OUT;
+                v2f o;
+                o.vertex = UnityObjectToClipPos(v.vertex);
+                o.uv = TRANSFORM_TEX(v.texcoord, _MainTex);
+                return o;
             }
 
-            fixed4 frag(v2f IN) : SV_Target
+            fixed4 frag(v2f i) : SV_Target
             {
-                fixed4 col = tex2D(_MainTex, IN.texcoord) * _Color;
-                return col;
+                fixed4 texColor = tex2D(_MainTex, i.uv);
+                fixed4 finalColor = texColor * _Color;
+
+                #ifdef UNITY_UI_ALPHACLIP
+                clip(finalColor.a - 0.001);
+                #endif
+
+                return finalColor;
             }
+
             ENDCG
         }
     }
