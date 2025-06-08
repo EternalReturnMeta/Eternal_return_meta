@@ -843,20 +843,20 @@ namespace Fusion.Menu
         // 플러그인에도 Hide(this) 호출
         public virtual void Hide()
         {
-            if (_animator)
-            {
-                if (_hideCoroutine != null)
-                    StopCoroutine(_hideCoroutine);
-                _hideCoroutine = StartCoroutine(HideAnimCoroutine());
-                return;
-            }
-            
-            IsShowing = false;
-
-            foreach (var p in _plugins)
-            {
-                p.Hide(this);
-            }
+            // if (_animator)
+            // {
+            //     if (_hideCoroutine != null)
+            //         StopCoroutine(_hideCoroutine);
+            //     _hideCoroutine = StartCoroutine(HideAnimCoroutine());
+            //     return;
+            // }
+            //
+            // IsShowing = false;
+            //
+            // foreach (var p in _plugins)
+            // {
+            //     p.Hide(this);
+            // }
             gameObject.SetActive(false);
         }
         // 화면을 표시하는 메서드
