@@ -50,8 +50,8 @@ public class MatchingManager : NetworkBehaviour
     [Rpc(RpcSources.StateAuthority, RpcTargets.All)]
     private void RPC_UpdatePlayerCount(int ready, int max)
     {
-        if (!HasStateAuthority)
-            return;
+        // if (!HasStateAuthority)
+        //     return;
         Controller.Get<MatchingModal>().UpdatePlayerCount(ready, max);
     }
 

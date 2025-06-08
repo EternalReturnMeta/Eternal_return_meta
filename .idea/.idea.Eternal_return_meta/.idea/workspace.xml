@@ -4,42 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3cce88e6-c27e-4108-a3e9-b7a7cffe5d21" name="변경" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/CharacterDataEnum.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/CharacterDataEnum.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/UIGamePlay.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/UIGamePlay.cs.meta" afterDir="false" />
+    <list default="true" id="3cce88e6-c27e-4108-a3e9-b7a7cffe5d21" name="변경" comment="풀전 커밋">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Eternal_return_meta/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Eternal_return_meta/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Photon/FusionMenu/Runtime/FusionMenuUILoading.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Photon/FusionMenu/Runtime/FusionMenuUILoading.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/effects/textures/FX_BI_Glow_02.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/effects/textures/FX_BI_Glow_02.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/effects/textures/FX_BI_Noise_01.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/effects/textures/FX_BI_Noise_01.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/effects/textures/FX_BI_Noise_05.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/effects/textures/FX_BI_Noise_05.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/effects/textures/FX_BI_Noise_07.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/effects/textures/FX_BI_Noise_07.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/effects/textures/FX_BI_Ray_04.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/effects/textures/FX_BI_Ray_04.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/effects/textures/FX_BI_Solid_01.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/effects/textures/FX_BI_Solid_01.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/effects/textures/Fx_Cartoon_Glow_01.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/effects/textures/Fx_Cartoon_Glow_01.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/effects/textures/Fx_Glow_07AB.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/effects/textures/Fx_Glow_07AB.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/materials/effect/FX_BI_Glow_07AB.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/materials/effect/FX_BI_Glow_07AB.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/materials/effect/FX_BI_Glow_07AB.mat.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/materials/effect/FX_BI_Glow_07AB.mat.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/materials/effect/FX_BI_Ray_04.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/materials/effect/FX_BI_Ray_04.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/materials/effect/FX_BI_Ray_04.mat.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/materials/effect/FX_BI_Ray_04.mat.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/materials/effect/FX_BI_UIGlow_01.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/materials/effect/FX_BI_UIGlow_01.mat" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/Matching/Lobby.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Matching/Lobby.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/FusionMenuUICharacterSelect.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/FusionMenuUICharacterSelect.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/MatchingManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/MatchingManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/PlayerNetworkObject.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/PlayerNetworkObject.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Shader/ERBS_FX_FX_AdditiveMobile.shader" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Shader/ERBS_FX_FX_AdditiveMobile.shader" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Shader/ERBS_FX_FX_AdditiveMobile.shader.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Shader/ERBS_FX_FX_AdditiveMobile.shader.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Shader/ERBS_FX_FX_AdditiveMobileColorAlpha.shader" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Shader/ERBS_FX_FX_AdditiveMobileColorAlpha.shader" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Shader/ERBS_FX_FX_AdditiveMobileColorAlpha.shader.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Shader/ERBS_FX_FX_AdditiveMobileColorAlpha.shader.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Shader/ERBS_FX_FX_MaskFlow_AB.shader" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Shader/ERBS_FX_FX_MaskFlow_AB.shader" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Shader/ERBS_FX_FX_MaskFlow_AB.shader.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Shader/ERBS_FX_FX_MaskFlow_AB.shader.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Shader/ERBS_FX_FX_MeshTrail.shader" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Shader/ERBS_FX_FX_MeshTrail.shader" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Shader/ERBS_FX_FX_MeshTrail.shader.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Shader/ERBS_FX_FX_MeshTrail.shader.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Shader/ERBS_FX_FX_ParticleAB.shader" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Shader/ERBS_FX_FX_ParticleAB.shader" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Shader/ERBS_FX_FX_ParticleAB.shader.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Shader/ERBS_FX_FX_ParticleAB.shader.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Shader/UI_Additive.shader" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Shader/UI_Additive.shader" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Texture2D/Noise_01.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Texture2D/Noise_01.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/QualitySettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/QualitySettings.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -67,10 +37,13 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/92adb8652ca14f1ab3a70dd474d7e407c0000/4e/fd327a7b/IPlayerJoined.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Photon/Fusion/Editor/Fusion.Unity.Editor.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Photon/FusionMenu/Runtime/MatchingModal.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/User/Desktop/Eternal_return_Meat_complete/Eternal_return_meta/Assets/Scenes/Matching/Lobby.unity" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/CharacterSelectButton.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/FusionMenuUICharacterSelect.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/GameFlowManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/MatchingManager.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/User/Desktop/Eternal_return_Meat_complete/Eternal_return_meta/Assets/Scripts/MatchingManager.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/User/Desktop/Eternal_return_Meat_complete/Eternal_return_meta/Assets/Scripts/MatchingManager.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.ugui@8a519b6be09c/Runtime/TMP/TMP_Text.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../../새 폴더 (2)/ExportedProject/Assets/Scripts/Assembly-CSharp/Blis/Client/UIPlayerStatusBar.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$USER_HOME$/Downloads/fusion-multi-climb-video-one-2.0.0/Assets/Photon/FusionMenu/Runtime/FusionMenu.Common.cs" root0="FORCE_HIGHLIGHTING" />
@@ -109,7 +82,7 @@
       <method v="2" />
     </configuration>
     <configuration name="독립실행형 플레이어" type="RunUnityExe" factoryName="Unity Executable">
-      <option name="EXE_PATH" value="$PROJECT_DIR$/../../Server\EternalReturn_Meta.exe" />
+      <option name="EXE_PATH" value="$PROJECT_DIR$/../../ERBuild\EternalReturn_Meta.exe" />
       <option name="PROGRAM_PARAMETERS" value="" />
       <option name="WORKING_DIRECTORY" value="C:\Users\User\Desktop\Server" />
       <option name="PASS_PARENT_ENVS" value="1" />
@@ -193,7 +166,7 @@
       <workItem from="1749196397975" duration="35000" />
       <workItem from="1749200711684" duration="2634000" />
       <workItem from="1749280910689" duration="1644000" />
-      <workItem from="1749288071277" duration="8515000" />
+      <workItem from="1749288071277" duration="11998000" />
     </task>
     <task id="LOCAL-00001" summary="1차커밋">
       <option name="closed" value="true" />
@@ -227,7 +200,23 @@
       <option name="project" value="LOCAL" />
       <updated>1749113028257</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="풀 전 커밋">
+      <option name="closed" value="true" />
+      <created>1749379168671</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1749379168671</updated>
+    </task>
+    <task id="LOCAL-00006" summary="풀전 커밋">
+      <option name="closed" value="true" />
+      <created>1749379184222</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1749379184222</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -258,6 +247,8 @@
     <MESSAGE value="2차 커밋" />
     <MESSAGE value="3차 커밋" />
     <MESSAGE value="4차 커밋" />
-    <option name="LAST_COMMIT_MESSAGE" value="4차 커밋" />
+    <MESSAGE value="풀 전 커밋" />
+    <MESSAGE value="풀전 커밋" />
+    <option name="LAST_COMMIT_MESSAGE" value="풀전 커밋" />
   </component>
 </project>
