@@ -107,7 +107,7 @@ public class MatchingManager : NetworkBehaviour
         if (IsCharacterSelectActive &&
             (CharacterSelectTimer.Expired(Runner) && SelectedCharacters.Count == MaxPlayerCount) && !IsGameActive)
         {
-            RPC_UIInit();
+            // RPC_UIInit();
             IsGameActive = true;
             RPC_GoToGame();
         }
@@ -138,19 +138,19 @@ public class MatchingManager : NetworkBehaviour
         }
     }
 
-    [Rpc(RpcSources.StateAuthority, RpcTargets.All)]
-    private void RPC_UIInit()
-    {
-        if (HasInputAuthority)
-        {
-            Controller.Show<UIGamePlay>();
-            Controller.Get<UIGamePlay>().UpdateUI(SelectedCharacters.Get(Runner.LocalPlayer));
-            Controller.Hide<FusionMenuUIMain>();
-            Controller.Hide<FusionMenuUILoading>();
-            Controller.Hide<MatchingModal>();
-            Controller.Hide<FusionMenuUICharacterSelect>();
-        }
-    }
+    // [Rpc(RpcSources.StateAuthority, RpcTargets.All)]
+    // private void RPC_UIInit()
+    // {
+    //     if (HasInputAuthority)
+    //     {
+    //         Controller.Show<UIGamePlay>();
+    //         Controller.Get<UIGamePlay>().UpdateUI(SelectedCharacters.Get(Runner.LocalPlayer));
+    //         Controller.Hide<FusionMenuUIMain>();
+    //         Controller.Hide<FusionMenuUILoading>();
+    //         Controller.Hide<MatchingModal>();
+    //         Controller.Hide<FusionMenuUICharacterSelect>();
+    //     }
+    // }
     [Rpc(RpcSources.StateAuthority, RpcTargets.All)]
     private void RPC_ShowLoading()
     {
@@ -180,5 +180,6 @@ public class MatchingManager : NetworkBehaviour
     public void RPC_TurnOffSecondCamera()
     {
         spawner.MainCamera.SetActive(false);
+        spawner.clinetUI.SetActive(false);
     }
 }

@@ -309,6 +309,7 @@ MonoBehaviour:
   _playerNetworkObjectPrefab: {fileID: 1617892965860983171, guid: d4537a78b892bd240a1e809773a6d7f5, type: 3}
   Controller: {fileID: 992762365}
   MainCamera: {fileID: 910767406}
+  clinetUI: {fileID: 1433228522}
 --- !u!114 &67987068
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2135,7 +2136,6 @@ MonoBehaviour:
   - {fileID: 7497446791817246331}
   - {fileID: 5633803328004134605}
   - {fileID: 4049002343640868368}
-  - {fileID: 1788129074}
 --- !u!222 &992762366
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3112,17 +3112,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _isModal: 0
   _plugins: []
-  SkillQ: {fileID: 3971903612794125138}
-  SkillW: {fileID: 3972050873573564825}
-  SkillE: {fileID: 3971235002477259618}
-  SkillR: {fileID: 3972092101451381804}
-  SkillPassive: {fileID: 3969588464408314469}
-  CharacterProfile: {fileID: 4790796828291380300}
-  HpBar: {fileID: 4791255805448488699}
-  ManaBar: {fileID: 4791103242064550975}
-  _characterInGameData:
-  - {fileID: 11400000, guid: 74722535bbbedf547b775422fce4d7b1, type: 2}
-  - {fileID: 11400000, guid: d795d7d1582f44642b92d409e04e1330, type: 2}
+  SkillQ: {fileID: 0}
+  SkillW: {fileID: 0}
+  SkillE: {fileID: 0}
+  SkillR: {fileID: 0}
+  SkillPassive: {fileID: 0}
+  CharacterProfile: {fileID: 0}
+  HpBar: {fileID: 0}
+  ManaBar: {fileID: 0}
+  _characterInGameData: []
 --- !u!1 &1872070499
 GameObject:
   m_ObjectHideFlags: 0
