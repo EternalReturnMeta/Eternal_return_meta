@@ -5,7 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3cce88e6-c27e-4108-a3e9-b7a7cffe5d21" name="변경" comment="풀전 커밋">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Eternal_return_meta/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Eternal_return_meta/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/MatchingManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/MatchingManager.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

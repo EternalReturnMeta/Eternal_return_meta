@@ -34,6 +34,8 @@ public class MatchingManager : NetworkBehaviour
         Instance = this;
         if (Controller == null)
             Controller = FindAnyObjectByType<MenuUIController>();
+        StartCoroutine(DelayedFind());
+        
         spawner = FindAnyObjectByType<MatchingManagerSpawner>();
         
         if (Runner.IsServer)
@@ -46,6 +48,12 @@ public class MatchingManager : NetworkBehaviour
         yield return null;
         
         RPC_Setting();
+    }
+
+    private IEnumerator DelayedFind()
+    {
+        yield return new WaitUntil(() => Controller != null);
+        yield return null;
     }
 
     [Rpc(RpcSources.StateAuthority, RpcTargets.All)]
