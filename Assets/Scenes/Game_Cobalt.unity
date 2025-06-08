@@ -112605,6 +112605,14 @@ PrefabInstance:
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 752184144510201328, guid: a9a01b53ae0735c4084b6235379d0f0d, type: 3}
+      propertyPath: spawnSpot1
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 752184144510201328, guid: a9a01b53ae0735c4084b6235379d0f0d, type: 3}
+      propertyPath: spawnSpot2
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 752184144510201328, guid: a9a01b53ae0735c4084b6235379d0f0d, type: 3}
       propertyPath: _playerPrefab22
       value: 
       objectReference: {fileID: 1066872162358274506, guid: ddb6720b19d377c46a2e1472b6df2d8b, type: 3}
@@ -112612,6 +112620,18 @@ PrefabInstance:
       propertyPath: _playerObjectPrefab
       value: 
       objectReference: {fileID: 1066872162358274506, guid: ddb6720b19d377c46a2e1472b6df2d8b, type: 3}
+    - target: {fileID: 752184144510201328, guid: a9a01b53ae0735c4084b6235379d0f0d, type: 3}
+      propertyPath: spawnSpot.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 752184144510201328, guid: a9a01b53ae0735c4084b6235379d0f0d, type: 3}
+      propertyPath: 'spawnSpot.Array.data[0]'
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 752184144510201328, guid: a9a01b53ae0735c4084b6235379d0f0d, type: 3}
+      propertyPath: 'spawnSpot.Array.data[1]'
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 752184144510201328, guid: a9a01b53ae0735c4084b6235379d0f0d, type: 3}
       propertyPath: '_playerPrefab.RawGuidValue.Array.data[0]'
       value: 2608630553771419124

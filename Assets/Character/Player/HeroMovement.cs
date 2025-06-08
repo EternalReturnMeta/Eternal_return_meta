@@ -1,12 +1,17 @@
 using System;
 using Fusion;
 using Fusion.Addons.SimpleKCC;
+using Unity.Cinemachine;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AI;
 
 public class HeroMovement : NetworkBehaviour
 {
     [SerializeField] private LayerMask groundLayer; // 바닥 레이어
+
+    [SerializeField] private GameObject[] spawnSpots;
+    
     [HideInInspector] public NavMeshAgent navMeshAgent;
     private SimpleKCC kcc;
 
@@ -41,22 +46,45 @@ public class HeroMovement : NetworkBehaviour
     public override void Spawned()
     {   
         // 클라이언트 agent 비활성화
-        if (!HasStateAuthority)
+        navMeshAgent.enabled = false;
+
+        if (HasInputAuthority)
         {
-            navMeshAgent.enabled = false;
+            var cameraController = GetComponent<CameraController>();
+            var heroCameraPoint = cameraController.CameraPoint.GetComponent<HeroCameraPoint>();
+
+            var playerInfo = Runner.LocalPlayer.ToString();
+            var initPos = spawnSpots[int.Parse(playerInfo[playerInfo.Length - 2].ToString()) % 2].transform.position;
+            heroCameraPoint.InitPos(initPos);
+            
+            GameObject obj = GameObject.FindWithTag("CinemachineCamera");
+            cameraController._CinemachineCamera = obj.GetComponent<CinemachineCamera>();
+            cameraController._CinemachineCamera.Target.TrackingTarget = heroCameraPoint.transform;
+            cameraController._CinemachineCamera.transform.position = heroCameraPoint.transform.position;
+            cameraController._CinemachineCamera.Target.TrackingTarget = null;
+        }
+
+        if (HasStateAuthority)
+        {
+            var playerInfo = GetComponentInParent<NetworkObject>().InputAuthority.ToString();
+            var initPos = spawnSpots[int.Parse(playerInfo[playerInfo.Length - 2].ToString()) % 2].transform.position;
+            lastPos = initPos;
+            kcc.SetPosition(initPos);
+            navMeshAgent.enabled = true;
         }
     }
+    
     private void Update()
     {
         if (!HasInputAuthority) return;
 
         if (Input.GetKeyDown(KeyCode.Mouse1))
-        {
+        {          
             var ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             
             if (Physics.Raycast(ray, out var hit, Mathf.Infinity, LayerMask.GetMask("Ground")))
             {
-                var hitPosition = hit.point;
+                var hitPosition      = hit.point;
                 var go = Instantiate(ClickVFX, hitPosition + new Vector3(0, 0.2f, 0), Quaternion.identity);
                 Destroy(go, 1f);
             }

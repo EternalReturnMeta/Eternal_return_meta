@@ -5,7 +5,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3cce88e6-c27e-4108-a3e9-b7a7cffe5d21" name="변경" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Eternal_return_meta/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Eternal_return_meta/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Character/Player/HeroCameraPoint.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Character/Player/HeroCameraPoint.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Character/Player/HeroMovement.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Character/Player/HeroMovement.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Character/Player/HeroState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Character/Player/HeroState.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Character/Player/Hero_Eva.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Character/Player/Hero_Eva.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Character/Player/System_Test.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Character/Player/System_Test.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Game_Cobalt.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Game_Cobalt.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Matching/Lobby.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Matching/Lobby.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/MatchingManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/MatchingManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/MatchingManagerSpawner.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/MatchingManagerSpawner.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -154,7 +163,8 @@
       <workItem from="1749195786320" duration="585000" />
       <workItem from="1749196397975" duration="35000" />
       <workItem from="1749200711684" duration="2634000" />
-      <workItem from="1749281415149" duration="2630000" />
+      <workItem from="1749281415149" duration="7080000" />
+      <workItem from="1749355782865" duration="21340000" />
     </task>
     <task id="LOCAL-00001" summary="1차커밋">
       <option name="closed" value="true" />
