@@ -8,6 +8,8 @@ public class PlayerNetworkObject : NetworkBehaviour
     {
         if (MatchingManager.Instance != null)
         {
+            if (!Object.HasInputAuthority)
+                Debug.Log("No Input Authority");
             Debug.Log("테스트용 첫번째 입니다.");
             MatchingManager.Instance.Rpc_SelectCharacter(characterId, Object.InputAuthority);
         }
@@ -18,6 +20,8 @@ public class PlayerNetworkObject : NetworkBehaviour
     {
         if (MatchingManager.Instance != null)
         {
+            if (!Object.HasInputAuthority)
+                Debug.Log("No Input Authority");
             Debug.Log("첫번째 입니다.");
             MatchingManager.Instance.Rpc_SelectUser(nickname, Object.InputAuthority);
         }
