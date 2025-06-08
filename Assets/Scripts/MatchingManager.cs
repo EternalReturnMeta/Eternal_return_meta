@@ -35,6 +35,8 @@ public class MatchingManager : NetworkBehaviour
         if (Controller == null)
             Controller = FindAnyObjectByType<MenuUIController>();
         spawner = FindAnyObjectByType<MatchingManagerSpawner>();
+        if (HasInputAuthority)
+            RPC_Setting();
     }
 
     [Rpc(RpcSources.StateAuthority, RpcTargets.All)]
@@ -93,7 +95,7 @@ public class MatchingManager : NetworkBehaviour
             IsMatchingComplete = true;
             LoadingTimer = TickTimer.CreateFromSeconds(Runner, LoadingDuration);
             RPC_ShowLoading();
-            RPC_Setting();
+
         }
         if (IsMatchingComplete && LoadingTimer.Expired(Runner) && !IsCharacterSelectActive)
         {

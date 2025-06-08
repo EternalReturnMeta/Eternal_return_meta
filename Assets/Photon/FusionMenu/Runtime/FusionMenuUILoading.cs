@@ -46,6 +46,14 @@ namespace Fusion.Menu
             ShowUser();
         }
 
+        
+
+        public override void Hide()
+        {
+            base.Hide();
+            HideUser();
+        }
+
         public void SettingUserCharacter()
         {
             var manager = MatchingManager.Instance;
@@ -62,23 +70,16 @@ namespace Fusion.Menu
                 {
                     Debug.Log("TryGetPlayerObject failed");
                 }
-                
+
                 if (myPlayer != null)
                 {
                     myPlayer.Rpc_RequestSelectCharacter(CharacterDataEnum.None);
                     myPlayer.Rpc_RequestSelectUser(ConnectionArgs.Username);
-                    
+
                     Debug.Log($"{ConnectionArgs.Username} : Username 입니다.");
                 }
             }
         }
-
-        public override void Hide()
-        {
-            base.Hide();
-            HideUser();
-        }
-        
         private IEnumerator CountCoroutine(float duration)
         {
             float elapsed = 0f;
