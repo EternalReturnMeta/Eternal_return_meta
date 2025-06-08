@@ -12,9 +12,12 @@ public class PlayerNetworkObject : NetworkBehaviour
             MatchingManager.Instance.Rpc_SelectCharacter(characterId, Object.InputAuthority);
         }
     }
-    [Rpc(RpcSources.InputAuthority, RpcTargets.All)]
-    public void Rpc_SetNickname(string nickname)
+    [Rpc(RpcSources.InputAuthority, RpcTargets.StateAuthority)]
+    public void Rpc_RequestSelectUser(string nickname)
     {
-        Nickname = nickname;
+        if (MatchingManager.Instance != null)
+        {
+            MatchingManager.Instance.Rpc_SelectUser(nickname, Object.InputAuthority);
+        }
     }
 }

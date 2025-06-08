@@ -17,6 +17,8 @@ public class MatchingManager : NetworkBehaviour
     [Networked] public NetworkBool IsCompleteSpawn { get; set; }
     [Networked, Capacity(2)]
     public NetworkDictionary<PlayerRef, CharacterDataEnum> SelectedCharacters => default;
+
+    public NetworkDictionary<PlayerRef, string> SelectedUser => default;
     
     private int MaxPlayerCount { get; set; } = 2;
     public const float LoadingDuration = 5f;
@@ -43,6 +45,19 @@ public class MatchingManager : NetworkBehaviour
         else
         {
             SelectedCharacters.Set(playerRef, characterId);
+        }
+    }
+    
+    [Rpc(RpcSources.StateAuthority, RpcTargets.All)]
+    public void Rpc_SelectUser(string user, PlayerRef playerRef)
+    {
+        if (!SelectedCharacters.ContainsKey(playerRef))
+        {
+            SelectedUser.Add(playerRef, user);
+        }
+        else
+        {
+            SelectedUser.Set(playerRef, user);
         }
     }
     

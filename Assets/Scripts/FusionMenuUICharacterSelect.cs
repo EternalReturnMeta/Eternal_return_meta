@@ -65,18 +65,25 @@ namespace Fusion.Menu
             }
             for (int i = 0; i < sortedPlayers.Count && i < playerImages.Length; i++)
             {
-                var PlayerRef = sortedPlayers[i].Key;
                 int charId = (int)sortedPlayers[i].Value;
                 if (charId == 2)
                     continue;
-                var playerObj = MatchingManager.Instance.Runner.GetPlayerObject(PlayerRef);
-                var nickname = playerObj.GetComponent<PlayerNetworkObject>().Nickname;
                 if (charId < playerData.Length)
                 {
                     playerImages[i].color = new Color(1f, 1f, 1f, 1f);
-                    playerNames[i].text = nickname;
                     playerImages[i].sprite = playerData[charId].vsImage;
                 }
+            }
+            
+            var sortedUser = MatchingManager.Instance.SelectedUser
+                .OrderBy(pair => pair.Key.PlayerId)
+                .ToList();
+
+            // 모든 이미지 초기화
+            for (int i = 0; i < sortedUser.Count && i < playerImages.Length; i++)
+            {
+                string name = sortedUser[i].Value;
+                playerNames[i].text = name;
             }
         }
         

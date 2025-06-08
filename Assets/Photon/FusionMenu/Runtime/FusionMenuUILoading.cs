@@ -60,8 +60,7 @@ namespace Fusion.Menu
                 if (myPlayer != null)
                 {
                     myPlayer.Rpc_RequestSelectCharacter(CharacterDataEnum.None);
-                    Debug.Log($"{ConnectionArgs.Username} : UserName");
-                    myPlayer.Rpc_SetNickname(ConnectionArgs.Username);
+                    myPlayer.Rpc_RequestSelectUser(ConnectionArgs.Username);
                 }
             }
             ShowUser();
