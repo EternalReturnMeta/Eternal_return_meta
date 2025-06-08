@@ -1,5 +1,6 @@
 using Character.Player;
 using Fusion;
+using Fusion.Addons.SimpleKCC;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -21,5 +22,4 @@ public class HeroState : NetworkBehaviour
     {
         return CurrHealth;
     }
-    
 }

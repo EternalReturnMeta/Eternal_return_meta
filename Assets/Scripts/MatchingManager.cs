@@ -1,5 +1,7 @@
 using System.Linq;
+using System.Collections.Generic;
 using Fusion;
+using Fusion.Addons.SimpleKCC;
 using Fusion.Menu;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -7,26 +9,28 @@ using UnityEngine.SceneManagement;
 public class MatchingManager : NetworkBehaviour
 {
     public static MatchingManager Instance { get; private set; }
-    [Networked] public bool IsMatchingComplete { get; set; }
+    [Networked] public NetworkBool IsMatchingComplete { get; set; }
     [Networked] public TickTimer LoadingTimer { get; set; }
     [Networked] public TickTimer CharacterSelectTimer { get; set; }
-    [Networked] public bool IsCharacterSelectActive { get; set; }
-    [Networked] public bool IsGameActive { get; set; }
-    [Networked] public bool IsCompleteSpawn { get; set; }
+    [Networked] public NetworkBool IsCharacterSelectActive { get; set; }
+    [Networked] public NetworkBool IsGameActive { get; set; }
+    [Networked] public NetworkBool IsCompleteSpawn { get; set; }
     [Networked, Capacity(2)]
     public NetworkDictionary<PlayerRef, CharacterDataEnum> SelectedCharacters => default;
-
-
+    
     private int MaxPlayerCount { get; set; } = 2;
     public const float LoadingDuration = 5f;
     public const float CharacterSelectDuration = 20f;
     public MenuUIController Controller { get; set; }
+    
+    private MatchingManagerSpawner spawner;
     
     public override void Spawned()
     {
         Instance = this;
         if (Controller == null)
             Controller = FindAnyObjectByType<MenuUIController>();
+        spawner = FindAnyObjectByType<MatchingManagerSpawner>();
     }
 
     [Rpc(RpcSources.StateAuthority, RpcTargets.All)]
@@ -84,7 +88,7 @@ public class MatchingManager : NetworkBehaviour
             RPC_GoToGame();
         }
         
-        if (Object.HasStateAuthority && !IsCompleteSpawn)
+        if (!IsCompleteSpawn)
         {
             var system = FindAnyObjectByType<System_Test>();
 
@@ -93,18 +97,22 @@ public class MatchingManager : NetworkBehaviour
                 return;
             }
             
-            IsCompleteSpawn = true;
-            foreach (var playerInfo in SelectedCharacters)
+            if (Object.HasStateAuthority)
             {
-                var playerPrefab = system.SelectPrefab(playerInfo.Value);
-                NetworkObject networkPlayerObject =
-                    Runner.Spawn(playerPrefab, Vector3.zero, Quaternion.identity, playerInfo.Key);
-                Runner.SetPlayerObject(playerInfo.Key, networkPlayerObject);
+                IsCompleteSpawn = true;
+
+                foreach (var playerInfo in SelectedCharacters)
+                {
+                    var playerPrefab = system.SelectPrefab(playerInfo.Value);
+                    NetworkObject networkPlayerObject =
+                        Runner.Spawn(playerPrefab, Vector3.zero, Quaternion.identity, playerInfo.Key);
+                    Runner.SetPlayerObject(playerInfo.Key, networkPlayerObject);
+                } 
+                
+                RPC_TurnOffSecondCamera();
+                spawner.IsCompleteSpawn = true;
             }
-            
-            FindAnyObjectByType<MatchingManagerSpawner>().IsCompleteSpawn = true;
         }
-        
     }
 
     [Rpc(RpcSources.StateAuthority, RpcTargets.All)]
@@ -131,5 +139,11 @@ public class MatchingManager : NetworkBehaviour
                 LoadSceneMode.Additive
             );
         }
+    }
+    
+    [Rpc(RpcSources.StateAuthority, RpcTargets.All)]
+    public void RPC_TurnOffSecondCamera()
+    {
+        spawner.MainCamera.SetActive(false);
     }
 }

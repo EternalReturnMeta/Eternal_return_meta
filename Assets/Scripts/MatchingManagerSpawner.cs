@@ -14,6 +14,8 @@ public class MatchingManagerSpawner : MonoBehaviour , INetworkRunnerCallbacks
     [SerializeField] private NetworkObject _playerNetworkObjectPrefab;
     [SerializeField] public MenuUIController Controller;
     
+    public GameObject MainCamera;
+    
     [Networked] public bool IsCompleteSpawn { get; set; }
     
     public MatchingManager MatchingManagerInstance { get; private set; }
@@ -138,18 +140,25 @@ public class MatchingManagerSpawner : MonoBehaviour , INetworkRunnerCallbacks
             _heroInput.Owner = _runner.LocalPlayer;
         }
         
-        var loopRay = Camera.main.ScreenPointToRay(Input.mousePosition);
-        if (Physics.Raycast(loopRay, out var hit2, Mathf.Infinity, LayerMask.GetMask("Ground")))
+        try
         {
-            _heroInput.MousePosition = new Vector3(hit2.point.x, 0, hit2.point.z);
+            var loopRay = Camera.main.ScreenPointToRay(Input.mousePosition);
+            if (Physics.Raycast(loopRay, out var hit2, Mathf.Infinity, LayerMask.GetMask("Ground")))
+            {
+                _heroInput.MousePosition = new Vector3(hit2.point.x, 0, hit2.point.z);
+            }
+
+        
+            _heroInput.Buttons = new NetworkButtons(_heroInput.Buttons.Bits | buttons.Bits);
+
+        
+            input.Set(_heroInput);
+            resetInput = true;
         }
-
-        
-        _heroInput.Buttons = new NetworkButtons(_heroInput.Buttons.Bits | buttons.Bits);
-
-        
-        input.Set(_heroInput);
-        resetInput = true;
+        catch (NullReferenceException e)
+        {
+            return;
+        }
     }
     public void OnInputMissing(NetworkRunner runner, PlayerRef player, NetworkInput input) { }
     public void OnShutdown(NetworkRunner runner, ShutdownReason shutdownReason) { }

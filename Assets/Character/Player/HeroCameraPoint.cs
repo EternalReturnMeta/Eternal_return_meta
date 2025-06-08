@@ -1,4 +1,5 @@
 using System;
+using Fusion;
 using UnityEngine;
 
 public class HeroCameraPoint : MonoBehaviour
@@ -8,9 +9,11 @@ public class HeroCameraPoint : MonoBehaviour
     [SerializeField] private float FixedYPosition = 9;
 
     [SerializeField] private Vector3 DistanceOffset;
-    void Start()
+
+    public void InitPos(Vector3 pos)
     {
-        DistanceOffset = transform.position - player.position;
+        Vector3 targetPosition = new Vector3(pos.x + DistanceOffset.x, FixedYPosition, pos.z + DistanceOffset.z);
+        transform.position = targetPosition;
     }
 
     private void LateUpdate()
