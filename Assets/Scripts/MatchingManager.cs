@@ -112,8 +112,8 @@ public class MatchingManager : NetworkBehaviour
         }
         if (IsMatchingComplete && LoadingTimer.Expired(Runner) && !IsCharacterSelectActive)
         {
-            if (Runner.IsServer)
-                StartCoroutine(DelayedCall());
+            // if (Runner.IsServer)
+            //     StartCoroutine(DelayedCall());
             CharacterSelectTimer = TickTimer.CreateFromSeconds(Runner, CharacterSelectDuration);
             IsCharacterSelectActive = true;
             RPC_GoToCharacterSelect();

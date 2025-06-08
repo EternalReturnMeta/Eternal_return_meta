@@ -106,11 +106,12 @@ namespace Fusion.Menu
 
                 yield return null;
             }
-
+            
             // 최종 값 보정
             countGague.fillAmount = 1f;
             _countText.text = "5";
             _countCoroutine = null;
+            SettingUserCharacter();
         }
     }
 }
