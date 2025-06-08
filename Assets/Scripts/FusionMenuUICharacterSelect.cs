@@ -63,6 +63,7 @@ namespace Fusion.Menu
                 img.color = new Color(1, 1, 1, 0f);
                 img.sprite = null;
             }
+            Debug.Log($"{sortedPlayers.Count} SortedPlayer입니다.");
             for (int i = 0; i < sortedPlayers.Count && i < playerImages.Length; i++)
             {
                 int charId = (int)sortedPlayers[i].Value;
