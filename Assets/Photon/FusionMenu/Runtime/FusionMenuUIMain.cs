@@ -72,7 +72,9 @@ namespace Fusion.Menu
                 Debug.LogWarning("No valid scene to start found. Configure the menu config.");
             }
             ShowUser();
+            
 #if UNITY_SERVER            
+            Debug.unityLogger.logEnabled = false;
             ConnectionArgs.Session = null;
             ConnectionArgs.Creating = false;
             ConnectionArgs.Region = ConnectionArgs.PreferredRegion;
