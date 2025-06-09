@@ -109,9 +109,10 @@ public class MatchingManager : NetworkBehaviour
         {
             RPC_UIInit();
             IsGameActive = true;
-            RPC_GoToGame();
+            StartCoroutine(WaitAndGoToGame());
         }
-        
+
+
         if (!IsCompleteSpawn)
         {
             var system = FindAnyObjectByType<System_Test>();
@@ -137,18 +138,30 @@ public class MatchingManager : NetworkBehaviour
             }
         }
     }
-
+    private IEnumerator WaitAndGoToGame()
+    {
+        yield return new WaitForSeconds(1.0f);
+        RPC_GoToGame();
+    }
     [Rpc(RpcSources.StateAuthority, RpcTargets.All)]
     private void RPC_UIInit()
     {
         if (HasInputAuthority)
         {
-            Controller.Show<UIGamePlay>();
-            Controller.Get<UIGamePlay>().UpdateUI(SelectedCharacters.Get(Runner.LocalPlayer));
-            Controller.Hide<FusionMenuUIMain>();
-            Controller.Hide<FusionMenuUILoading>();
-            Controller.Hide<MatchingModal>();
-            Controller.Hide<FusionMenuUICharacterSelect>();
+            // Controller.Show<UIGamePlay>();
+            // Controller.Get<UIGamePlay>().UpdateUI(SelectedCharacters.Get(Runner.LocalPlayer));
+            var main = Controller.Get<FusionMenuUIMain>();
+            if (main != null)
+                main.Hide();
+            var loading = Controller.Get<FusionMenuUILoading>();
+            if (loading != null)
+                loading.Hide();
+            var modal = Controller.Get<MatchingModal>();
+            if (modal != null)
+                modal.Hide();
+            var character =Controller.Get<FusionMenuUICharacterSelect>();
+            if (character != null)
+                character.Hide();
         }
     }
     [Rpc(RpcSources.StateAuthority, RpcTargets.All)]
@@ -170,7 +183,7 @@ public class MatchingManager : NetworkBehaviour
         {
             // GameScene을 Additive 모드로 로드
             Runner.LoadScene(
-                SceneRef.FromIndex(1), 
+                SceneRef.FromIndex(1),
                 LoadSceneMode.Additive
             );
         }
