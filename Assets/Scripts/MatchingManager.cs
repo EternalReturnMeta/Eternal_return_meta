@@ -107,7 +107,7 @@ public class MatchingManager : NetworkBehaviour
         if (IsCharacterSelectActive &&
             (CharacterSelectTimer.Expired(Runner) && SelectedCharacters.Count == MaxPlayerCount) && !IsGameActive)
         {
-            // RPC_UIInit();
+            RPC_UIInit();
             IsGameActive = true;
             StartCoroutine(WaitAndGoToGame());
         }
@@ -149,8 +149,6 @@ public class MatchingManager : NetworkBehaviour
     {
         if (HasInputAuthority)
         {
-            // Controller.Show<UIGamePlay>();
-            // Controller.Get<UIGamePlay>().UpdateUI(SelectedCharacters.Get(Runner.LocalPlayer));
             var main = Controller.Get<FusionMenuUIMain>();
             if (main != null)
                 main.Hide();
