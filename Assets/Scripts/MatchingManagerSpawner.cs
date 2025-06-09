@@ -15,6 +15,7 @@ public class MatchingManagerSpawner : MonoBehaviour , INetworkRunnerCallbacks
     [SerializeField] public MenuUIController Controller;
     
     public GameObject MainCamera;
+    public GameObject clinetUI;
     
     [Networked] public bool IsCompleteSpawn { get; set; }
     

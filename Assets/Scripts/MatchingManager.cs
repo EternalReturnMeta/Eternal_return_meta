@@ -107,7 +107,7 @@ public class MatchingManager : NetworkBehaviour
         if (IsCharacterSelectActive &&
             (CharacterSelectTimer.Expired(Runner) && SelectedCharacters.Count == MaxPlayerCount) && !IsGameActive)
         {
-            RPC_UIInit();
+            // RPC_UIInit();
             IsGameActive = true;
             StartCoroutine(WaitAndGoToGame());
         }
@@ -138,6 +138,7 @@ public class MatchingManager : NetworkBehaviour
             }
         }
     }
+
     private IEnumerator WaitAndGoToGame()
     {
         yield return new WaitForSeconds(1.0f);
@@ -164,6 +165,7 @@ public class MatchingManager : NetworkBehaviour
                 character.Hide();
         }
     }
+
     [Rpc(RpcSources.StateAuthority, RpcTargets.All)]
     private void RPC_ShowLoading()
     {
@@ -193,5 +195,6 @@ public class MatchingManager : NetworkBehaviour
     public void RPC_TurnOffSecondCamera()
     {
         spawner.MainCamera.SetActive(false);
+        spawner.clinetUI.SetActive(false);
     }
 }
