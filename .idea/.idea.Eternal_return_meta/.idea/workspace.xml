@@ -4,10 +4,33 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3cce88e6-c27e-4108-a3e9-b7a7cffe5d21" name="변경" comment="풀전 커밋">
+    <list default="true" id="3cce88e6-c27e-4108-a3e9-b7a7cffe5d21" name="변경" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Eternal_return_meta/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Eternal_return_meta/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/ShaderGraphSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ShaderGraphSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Character/Ball.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Character/Ball.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Character/Ball.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Character/Ball.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Character/BasicSpawner.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Character/BasicSpawner.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Character/BasicSpawner.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Character/BasicSpawner.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Character/Character_Test.unity" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Character/Character_Test.unity.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Character/NetworkInputData.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Character/NetworkInputData.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Character/PhysxBall.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Character/PhysxBall.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Character/Player.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Character/Player.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Character/PlayerInputData.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Character/PlayerInputData.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Character/PlayerPrefab.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Character/PlayerPrefab.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Character/physxBall.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Character/physxBall.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Photon/FusionDemos.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity.meta" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -35,6 +58,7 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/92adb8652ca14f1ab3a70dd474d7e407c0000/4e/fd327a7b/IPlayerJoined.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/92adb8652ca14f1ab3a70dd474d7e407c0000/5f/c1bd9092/RpcTargets.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/92adb8652ca14f1ab3a70dd474d7e407c0000/f8/d8edf9c3/NetworkRunner.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../../EternalReturnOrigin/ExportedProject/Assets/Plugins/Assembly-CSharp-firstpass/BestHTTP/SecureProtocol/Org/BouncyCastle/Crypto/Tls/TlsMac.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Photon/Fusion/Editor/Fusion.Unity.Editor.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Photon/FusionMenu/Runtime/MatchingModal.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/CharacterSelectButton.cs" root0="FORCE_HIGHLIGHTING" />
@@ -163,7 +187,8 @@
       <workItem from="1749200711684" duration="2634000" />
       <workItem from="1749280910689" duration="1644000" />
       <workItem from="1749288071277" duration="11998000" />
-      <workItem from="1749615993526" duration="428000" />
+      <workItem from="1749615993526" duration="720000" />
+      <workItem from="1749625312020" duration="781000" />
     </task>
     <task id="LOCAL-00001" summary="1차커밋">
       <option name="closed" value="true" />
@@ -213,7 +238,15 @@
       <option name="project" value="LOCAL" />
       <updated>1749379184222</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="필요 없는 파일 정리 전 commit">
+      <option name="closed" value="true" />
+      <created>1749616602540</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1749616602540</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -246,6 +279,7 @@
     <MESSAGE value="4차 커밋" />
     <MESSAGE value="풀 전 커밋" />
     <MESSAGE value="풀전 커밋" />
-    <option name="LAST_COMMIT_MESSAGE" value="풀전 커밋" />
+    <MESSAGE value="필요 없는 파일 정리 전 commit" />
+    <option name="LAST_COMMIT_MESSAGE" value="필요 없는 파일 정리 전 commit" />
   </component>
 </project>
